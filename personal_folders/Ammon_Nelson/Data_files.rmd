@@ -17,18 +17,14 @@ When you click the **Knit** button a document will be generated that includes bo
 
 ```{r cars}
 library(tidyverse)
-brand_info <- read.csv("brand_info.csv")
-core_poi <- read.csv("core_poi-patterns.csv")
-home_panel <- read.csv("home_panel_summary.csv")
-normalization <- read.csv("normalization_stats.csv")
-vist_panel <- read.csv("visit_panel_summary.csv")
+library(readr)
+brand_info <- read_csv("C:/Users/Ammon/Desktop/Desktop/School 2022/Winter 2022/DSS_W22_Beehive/raw_data/ID-CORE_POI-PATTERNS-2021_07-2021-10-18/brand_info.csv")
+core_poi_patterns <- read_csv("C:/Users/Ammon/Desktop/Desktop/School 2022/Winter 2022/DSS_W22_Beehive/raw_data/ID-CORE_POI-PATTERNS-2021_07-2021-10-18/core_poi-patterns.csv")
 ```
 
 ```{r}
-View(core_poi)
-View(vist_panel)
-View(normalization)
-
+View(brand_info)
+View(core_poi_patterns)
 
 
 ```
@@ -38,7 +34,10 @@ View(normalization)
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+device <- core_poi_patterns %>% subset(select = c(device_type))
+device
+
+
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
